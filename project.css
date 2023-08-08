@@ -4,10 +4,12 @@
 .heading__img {
   width: 15%;
   height: 90px;
+  position: relative;top: 0%;
 }
 body{
   background-image: url("images/background.jpg");
   background-repeat: no-repeat;
+  background-size: cover;
   font-family: 'Poppins', sans-serif;
 }
 ul {
@@ -21,7 +23,7 @@ ul li {
   position: relative;
   padding: 16px;
   background: #527f89aa;
-  font-size: 18px;
+  font-size: 15px;
   transition: 0.2s;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -32,7 +34,7 @@ ul li {
   align-items: center;
   flex-direction: row;
   border-radius: 60px;
-  position: relative;left: 27%;
+  position: relative;left: 28.5%;
 }
 ul li:hover {
   background: #ddd;
@@ -75,7 +77,7 @@ ul li.checked::before {
   align-items: center;
   flex-direction: column;
   border-radius: 60px;
-  position: relative;left: 27%;
+  position: relative;left: 28.5%;
 }
 .header:after {
   content: "";
@@ -103,9 +105,35 @@ input {
   margin-top: 10px;
 }
 
-.addBtn:hover {
+.myButt:hover {
   background-color: #bbb;
 }
 .cat{
   position: static;left: -12%;
+}
+#loginSection{
+  background-color: #527f899d;
+  width:40%;
+  padding: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 60px;
+  position: relative;left: 27%;
+  gap:10px;
+  margin: 20px;
+}
+#logbutt{
+  background: #d9d9d9;
+  color: #555;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 60px;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10px;
+}
+#logbutt:hover{
+  background-color: #bbb;
 }

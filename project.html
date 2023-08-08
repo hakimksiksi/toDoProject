@@ -12,6 +12,11 @@
     <link rel="icon" type="image/x-icon" href="images/logo.png">
 </head>
 <body>
+  <div id="loginSection">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button id ="logbutt"onclick="login()">Login</button>
+  </div>
   <div class="imgHead">
     <img class="heading__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/laptop.svg" alt="Heading Image">
 </div>
@@ -20,7 +25,7 @@
   <input type="text" id="myInput" placeholder="Add Your To Do Here...">
   <span onclick="newElement()" class="myButt">Add</span>
 </div>
-<ul id="myUL">
+<ul id="toDo">
 </ul>
 <img class="cat" src="images/fa057582f44b477206a32e255bb8ca18.gif" alt="Cat GIF">
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>

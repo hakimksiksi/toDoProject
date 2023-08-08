@@ -1,13 +1,59 @@
-$('.header').fadeOut("slow")
+// each
+function each(coll, f) { 
+  if (Array.isArray(coll)) { 
+        for (var i = 0; i < coll.length; i++) { 
+              f(coll[i], i); 
+        } 
+  } else { 
+        for (var key in coll) { 
+              f(coll[key], key); 
+        } 
+  } 
+}
+
+
+// map
+function map(array, f) { 
+  var acc = []; 
+  each(array, function(element, i) { 
+        acc.push(f(element, i)); 
+  }); 
+  return acc; 
+}
+
+
+// filter
+function filter(array, predicate) {
+  var acc = [];
+  each(array, function(element) {
+      if (predicate(element)) {
+          acc.push(element);
+      }
+  });
+  return acc;
+}
+
+
+//reduce
+function reduce(array, f, acc) { 
+     if (acc === undefined) { 
+           acc = array[0]; 
+           array = array.slice(1); 
+     } 
+     each(array, function(element, i) { 
+           acc = f(acc, element, i); 
+     }); 
+     return acc; 
+}
+$('.header').fadeOut("slow") // I used these functions to make a little animation when you first open the website
 $('.header').fadeIn("slow")
-var list = document.getElementsByTagName("LI")  
-var i;
-for (i = 0; i < list.length; i++) {
+var list = document.getElementsByTagName("li")  
+for (var i = 0; i < list.length; i++) {
   var span = document.createElement("SPAN")
   var txt = document.createTextNode("\u00D7")
-  span.className = "close";
-  span.appendChild(txt);
-  list[i].appendChild(span);
+  span.className = "close"
+  span.appendChild(txt)
+  list[i].appendChild(span)
 }
 var close = document.getElementsByClassName("close");
 var i;
@@ -17,30 +63,34 @@ for (i = 0; i < close.length; i++) {
     div.style.display = "none"
   }
 }
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
+var list2 = document.querySelector('ul');
+list2.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'li') {
     ev.target.classList.toggle('checked')
   }
-}, false);
+}, false)
 
-function newElement() {
-  var li = document.createElement("li");
+function newElement() { 
+  var li = document.createElement("li")
   var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue)
-  li.appendChild(t);
+  var texto = document.createTextNode(inputValue)
+  li.appendChild(texto)//This is a method provided by the DOM that allows you to add a child to the selected element
   if (inputValue === '') {
-    alert("You must write something!");
+    alert("You must write something!");// if there is no input given an alert should occur
   } else {
-    document.getElementById("myUL").appendChild(li);
+    var currentDate = new Date().toLocaleDateString()
+    var textWithDate = inputValue + " "+currentDate 
+    var texto = document.createTextNode(textWithDate)//add date for each to do added
+    li.appendChild(texto)
+    document.getElementById("toDo").appendChild(li);
   }
   document.getElementById("myInput").value = ""
 
   var span = document.createElement("SPAN")
   var txt = document.createTextNode("\u00D7")
   span.className = "close"
-  span.appendChild(txt)
-  li.appendChild(span)
+  span.appendChild(txt)//create text
+  li.appendChild(span)// create span
 
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
@@ -49,4 +99,4 @@ function newElement() {
     }
   }
 }
-  
+//with this function we can add any to do that we want by just typing in the input 

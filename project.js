@@ -47,7 +47,7 @@ function reduce(array, f, acc) {
 }
 $('.header').fadeOut("slow") // I used these functions to make a little animation when you first open the website
 $('.header').fadeIn("slow")
-var list = document.getElementsByTagName("li")  
+var list = document.getElementsByTagName("LI")  
 for (var i = 0; i < list.length; i++) {
   var span = document.createElement("SPAN")
   var txt = document.createTextNode("\u00D7")
@@ -55,7 +55,7 @@ for (var i = 0; i < list.length; i++) {
   span.appendChild(txt)
   list[i].appendChild(span)
 }
-var close = document.getElementsByClassName("close");
+var close = document.getElementsByClassName("close")
 var i;
 for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
@@ -65,7 +65,7 @@ for (i = 0; i < close.length; i++) {
 }
 var list2 = document.querySelector('ul');
 list2.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'li') {
+  if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked')
   }
 }, false)
@@ -82,7 +82,7 @@ function newElement() {
     var textWithDate = inputValue + " "+currentDate 
     var texto = document.createTextNode(textWithDate)//add date for each to do added
     li.appendChild(texto)
-    document.getElementById("toDo").appendChild(li);
+    document.getElementById("toDo").appendChild(li)
   }
   document.getElementById("myInput").value = ""
 
